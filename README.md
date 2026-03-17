@@ -1,98 +1,93 @@
-# n8n Workflows Repository
+# n8n Workflows: AI Agents + Automation Pack
 
-Welcome to the **n8n_Workflows** repository!  
-This repository is a curated collection of powerful, ready-to-use [n8n](https://n8n.io/) automation workflows designed to accelerate your business processes, streamline repetitive tasks, and empower your digital productivity.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+A community‑powered, **open‑source** collection of n8n workflows built to help you ship automations fast — from AI agents and RAG chatbots to sales, social, and ops workflows.
 
 ---
 
-## 🚀 About n8n
+## ✨ What You Get
+- **AI agent templates** with tool‑calling patterns
+- **Ready‑to‑import workflows** for sales, marketing, and ops
+- **Real‑world automation examples** you can customize in minutes
+- **Open‑source contributions** welcome from everyone
 
-[n8n](https://n8n.io/) is a free and open-source workflow automation tool that allows you to connect various applications, APIs, and services with ease. With its intuitive visual interface, you can orchestrate complex automations without writing a single line of code.
+---
+
+## 🚀 Quick Links
+- **Get Started:** [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)
+- **Workflow Catalog:** [docs/WORKFLOW_CATALOG.md](docs/WORKFLOW_CATALOG.md)
+- **AI Agents Playbook:** [docs/AI_AGENTS_PLAYBOOK.md](docs/AI_AGENTS_PLAYBOOK.md)
+- **Troubleshooting:** [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)
+- **Contributing:** [CONTRIBUTING.md](CONTRIBUTING.md)
+- **Code of Conduct:** [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 ---
 
 ## 📂 Repository Structure
 
-- **/workflows/**  
-  Contains all n8n workflow JSON files. Each workflow is self-contained and can be directly imported into your n8n instance.
+```
+.
+├── n8n-ai-agent.json
+├── RAG_Chatbot_for_Company_Documents_using_Google_Drive_and_Gemini.json
+├── Social media manager.json
+├── ... (more standalone workflows)
+├── Avatar agent/
+│   └── DM AGENT - INSTA , FB/
+├── Sales agent/
+│   └── Lead Scraper/
+└── docs/
+```
 
-- **/docs/**  
-  Documentation, usage examples, and explanations for each workflow.
-
-- **/assets/**  
-  Images and assets used in documentation and workflow descriptions.
-
----
-
-## ✨ Features
-
-- **Plug-and-Play Workflows**: Easily import and start automating in minutes.
-- **Diverse Use Cases**: Marketing, data integration, notifications, file management, and more.
-- **Reusable Building Blocks**: Modular workflows to extend and customize as needed.
-- **Regular Updates**: Continuously improved with new workflows and enhancements.
+> Most workflows live at the repo root. Related multi‑workflow systems live inside folders.
 
 ---
 
-## 🛠️ Getting Started
+## 🛠️ Quick Start
 
-1. **Clone the Repository**
-    ```bash
-    git clone https://github.com/Sasisundar2211/n8n_Workflows.git
-    ```
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/Sasisundar2211/n8n_Workflows.git
+   ```
 
-2. **Import Workflows into n8n**
-    - Open your n8n instance.
-    - Go to **Workflows** > **Import from File**.
-    - Select the desired workflow JSON from the `/workflows/` directory.
+2. **Import a workflow**
+   - Open your n8n instance
+   - Go to **Workflows → Import from File**
+   - Select a JSON workflow from this repo
 
-3. **Configure Credentials**
-    - Some workflows may require API keys or service credentials.
-    - Set up the required credentials in n8n under **Credentials**.
+3. **Configure credentials**
+   - Add required API keys or OAuth credentials in **Credentials**
+   - Map credentials on the workflow nodes
 
-4. **Activate and Enjoy Automation!**
+4. **Test and activate**
+   - Run a test execution
+   - Toggle **Active** for production runs
 
 ---
 
-## 📖 Documentation
-
-- Each workflow in the `/workflows/` directory includes a dedicated documentation file in `/docs/`.
-- Documentation covers:
-  - Purpose & Use Case
-  - Step-by-step Setup
-  - Required Credentials
-  - Customization Tips
+## 💡 Make It Viral (Community Growth)
+- ⭐ **Star** the repo if it saves you time
+- 🧵 **Share** your automation wins on LinkedIn/Twitter and tag the repo
+- 🧩 **Contribute** your best workflows so others can copy, learn, and build
 
 ---
 
 ## 🤝 Contributing
+We welcome new workflows, docs, and improvements.
 
-Contributions are welcome!  
-To submit a workflow or improvement:
-
-1. Fork the repository.
-2. Add your workflow (and documentation, if applicable).
-3. Create a pull request with a clear description.
+➡️ Read [CONTRIBUTING.md](CONTRIBUTING.md) to submit a workflow or propose a feature.
 
 ---
 
 ## 📝 License
-
-This repository is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
 ## 📬 Contact & Support
-
-For questions, suggestions, or support, feel free to open an issue or contact the repository maintainer:
-
-- **GitHub**: [@Sasisundar2211](https://github.com/Sasisundar2211)
+Open a GitHub issue for questions, requests, or help with a workflow.
 
 ---
 
-## 🌟 Acknowledgements
-
-- Thanks to the amazing [n8n](https://n8n.io/) community for continuous inspiration and support.
-
----
-
-**Automate your workflows. Accelerate your success.**
+**Automate faster. Build smarter. Share openly.**
