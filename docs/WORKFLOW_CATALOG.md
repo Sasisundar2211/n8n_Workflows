@@ -21,7 +21,7 @@ This catalog provides a quick overview of the workflows included in this reposit
 
 | Workflow | Location | What it does | Notes |
 | --- | --- | --- | --- |
-| LinkedIn Jobs + Decision Maker Research | `Linkedin Jobs Scraping and Decision MakerResearch.json` | Scrapes jobs and researches decision makers | Validate source limits and terms |
+| LinkedIn Jobs + Decision MakerResearch | `Linkedin Jobs Scraping and Decision MakerResearch.json` | Scrapes jobs and researches decision makers | Validate source limits and terms |
 
 ## Sales & Lead Generation
 
