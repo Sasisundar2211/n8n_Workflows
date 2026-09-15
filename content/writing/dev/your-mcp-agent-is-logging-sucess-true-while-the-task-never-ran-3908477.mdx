@@ -1,0 +1,76 @@
+---
+title: "Your MCP Agent is Logging \"Sucess: true\" While the task never ran"
+description: "You build an agent. It calls an MCP tool, gets a response, logs success: true, and moves on...."
+date: 2026-06-15
+source: DEV
+canonicalUrl: https://dev.to/sasi_sundar/your-mcp-agent-is-logging-sucess-true-while-the-task-never-ran-4blb
+layout: article
+---
+
+You build an agent. It calls an MCP tool, gets a response, logs success: true, and moves on. Thirty-three minutes later a customer emails asking why their ticket was never created.
+
+You pull the logs. Every entry says the call succeeded. You check the MCP server. It received the request. HTTP 200 came back. So where did the task go?
+
+It went nowhere. The task never ran. The MCP server returned a null result inside a 200 response, and your agent treated the status code as truth and discarded the body.
+
+This is not a fringe case. It is the default failure mode of MCP.
+
+## Why this happens at the protocol level
+MCP is built on JSON-RPC 2.0 over HTTP. The error surface is split across two layers. HTTP carries the transport status. JSON-RPC carries the application status. They do not have to agree, and often they do not.
+
+A well-behaved MCP error looks like this:
+
+```json
+{"jsonrpc": "2.0", "id": 1, "error": {"code": -32000, "message": "tool execution failed"}}
+```
+
+Also HTTP 200. No error field. The server finished handling the request and returned nothing. Most agent frameworks check res.ok or the HTTP status code and move on. The null goes unexamined.
+
+## Three failure patterns worth knowing
+
+### 1. Null result propagation
+A tools/call returns {"result": null} with HTTP 200. The agent has no indication anything went wrong. It logs the call as complete. The downstream system never receives the expected payload. This is the most common pattern and the hardest to catch because every layer reports success.
+
+### 2. Retry masking
+Your agent is configured with retries. The upstream MCP server is behind a deduplication layer. The agent fires a tools/call, times out, retries three times. Each retry is deduplicated by the upstream — it executes the mutation once and acknowledges the subsequent requests silently. The agent sees success on attempt four. Your audit log shows six calls. The task ran once but the agent has no idea which attempt was real.
+
+### 3. Content schema drift in multi-agent workflows
+MCP's tools/call result schema requires a content array where each item has a type field. Servers that were written quickly omit type. The consuming agent deserializes the array, tries to route by type, finds undefined, and either silently drops the item or throws an uncaught exception that gets swallowed by an outer try-catch. The agent logs the call as successful. The data was there. The schema was wrong.
+
+## What Vouqis does
+Vouqis is a proxy that sits between your agent and your MCP server. Every request and response passes through it. It validates both sides and writes a structured audit log.
+
+```bash
+npm install -g @vouqis/cli
+vouqis proxy --upstream [https://your-mcp-server.com](https://your-mcp-server.com)
+
+```
+
+Your agent points at http://127.0.0.1:4444 instead of the MCP server directly. Every event — allow, block,retry, rewrite — is written to vouqis-audit.log as NDJSON with timestamp, method, tool name, latency, attempt number, and reason.
+
+The audit event shape:
+```json
+{
+  "timestamp": "2026-06-15T10:04:22.341Z",
+  "method": "tools/call",
+
+### 
+  "tool": "create_ticket",
+  "decision": "block",
+  "latency_ms": 187,
+  "reason": "tools/call result is null or missing",
+  "attempt": 1
+}
+
+```
+
+That is the event you would have wanted at 10:04 AM instead of finding out from a customer complaint at 10:37 AM.
+
+## If you have hit this
+If you are running LangGraph, a custom MCP integration, or a multi-agent workflow in production and you have debugged a silent MCP failure — drop a comment with the pattern you hit.
+
+The project is at https://vouqis.tech. The source is at https://github.com/Sasisundar2211/Vouqis.
+
+---
+
+> Originally published on [DEV](https://dev.to/sasi_sundar/your-mcp-agent-is-logging-sucess-true-while-the-task-never-ran-4blb).

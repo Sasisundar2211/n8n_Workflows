@@ -1,0 +1,172 @@
+---
+title: "The Tool Call Succeeded. The Outcome Failed."
+description: "Most engineering teams are trained to think about failures the wrong way.  We look for crashes.  We..."
+date: 2026-06-19
+source: DEV
+canonicalUrl: https://dev.to/sasi_sundar/the-tool-call-succeeded-the-outcome-failed-3l59
+layout: article
+---
+
+Most engineering teams are trained to think about failures the wrong way.
+
+We look for crashes.
+
+We look for exceptions.
+
+We look for alerts.
+
+We look for red dashboards.
+
+But some of the most damaging failures don't look like failures at all.
+
+They look like success.
+
+A few months ago, while working with AI agents and MCP servers, I noticed a pattern that kept repeating itself.
+
+The agent would call a tool.
+
+The tool would return a successful response.
+
+No error.
+
+No exception.
+
+No timeout.
+
+Everything looked healthy.
+
+But the task wasn't completed.
+
+The action never happened.
+
+The user received the wrong outcome.
+
+The customer discovered the problem before the engineering team did.
+
+This is a very different type of failure.
+
+And it's becoming increasingly common as AI systems move into production.
+
+## The Assumption Every Engineer Makes
+
+Most software systems are built around a simple assumption:
+
+> If the request succeeded, the outcome succeeded.
+
+That assumption works surprisingly well until external systems enter the picture.
+
+Modern AI agents depend on APIs, MCP servers, databases, SaaS platforms, search systems, and dozens of external tools.
+
+Every additional dependency creates another opportunity for the request and the outcome to diverge.
+
+The system reports success.
+
+Reality reports failure.
+
+## Four Ways This Happens
+
+### 1. Null Responses
+
+The tool returns successfully.
+
+The response is technically valid.
+
+The actual result is empty.
+
+```json
+{
+  "result": null
+}
+```
+
+The agent continues.
+
+The user receives incomplete information.
+
+Nobody notices immediately.
+
+### 2. Partial Execution
+
+The request triggered three actions.
+
+Only one completed.
+
+The tool reports success anyway.
+
+The workflow is now in an inconsistent state.
+
+### 3. Stale Data
+
+The response arrives successfully.
+
+The information is hours old.
+
+The agent makes a decision based on outdated reality.
+
+### 4. Schema Drift
+
+A field changes.
+
+A response format evolves.
+
+The system still receives data.
+
+The meaning of the data changes.
+
+The workflow silently breaks.
+
+## Why These Failures Are Expensive
+
+Crashes are visible.
+
+Silent failures are invisible.
+
+A crash gets reported instantly.
+
+A silent failure continues operating.
+
+Users lose trust.
+
+Engineers spend hours debugging.
+
+Teams reconstruct events after the damage is already done.
+
+The investigation usually starts with:
+
+> "A customer said something looked wrong."
+
+That's one of the most expensive ways to discover a reliability problem.
+
+## The Lesson
+
+The lesson is simple.
+
+Stop trusting successful requests.
+
+Start validating successful outcomes.
+
+Those are not the same thing.
+
+A response code tells you whether communication happened.
+
+It does not tell you whether the desired outcome occurred.
+
+As AI systems become more dependent on tools and external systems, that distinction becomes increasingly important.
+
+## One Action You Can Take Today
+
+Review the last 10 production tool calls in your system.
+
+For each one, ask:
+
+* Did the request succeed?
+* Did the intended outcome actually occur?
+* How would we know if it didn't?
+
+If those answers are different, you've already found a reliability gap.
+
+And chances are your users will find it eventually if you don't.
+
+---
+
+> Originally published on [DEV](https://dev.to/sasi_sundar/the-tool-call-succeeded-the-outcome-failed-3l59).

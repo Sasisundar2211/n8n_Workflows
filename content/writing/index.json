@@ -1,0 +1,107 @@
+{
+  "generatedAt": "2026-09-15",
+  "dev": [
+    {
+      "title": "The Tool Call Succeeded. The Outcome Failed.",
+      "date": "2026-06-19",
+      "url": "https://dev.to/sasi_sundar/the-tool-call-succeeded-the-outcome-failed-3l59",
+      "source": "DEV",
+      "path": "../../content/writing/dev/the-tool-call-succeeded-the-outcome-failed-3943016.mdx",
+      "kind": "article",
+      "description": "Most engineering teams are trained to think about failures the wrong way.  We look for crashes.  We..."
+    },
+    {
+      "title": "Your MCP Agent is Logging \"Sucess: true\" While the task never ran",
+      "date": "2026-06-15",
+      "url": "https://dev.to/sasi_sundar/your-mcp-agent-is-logging-sucess-true-while-the-task-never-ran-4blb",
+      "source": "DEV",
+      "path": "../../content/writing/dev/your-mcp-agent-is-logging-sucess-true-while-the-task-never-ran-3908477.mdx",
+      "kind": "article",
+      "description": "You build an agent. It calls an MCP tool, gets a response, logs success: true, and moves on...."
+    },
+    {
+      "title": "Building VOUQIS: How we built the Trust layer for MCP Ecosystem",
+      "date": "2026-05-27",
+      "url": "https://dev.to/sasi_sundar/building-vouqis-how-we-built-the-trust-layer-for-mcp-ecosystem-4acj",
+      "source": "DEV",
+      "path": "../../content/writing/dev/building-vouqis-how-we-built-the-trust-layer-for-mcp-ecosystem-3762770.mdx",
+      "kind": "article",
+      "description": "Your AI agent calls a Model Context Protocol (MCP) server. The server returns a standard 200 OK. The..."
+    },
+    {
+      "title": "Building VOUQIS: How we built the Trust layer for MCP Ecosystem",
+      "date": "2026-05-27",
+      "url": "https://dev.to/sasi_sundar/building-vouqis-how-we-built-the-trust-layer-for-mcp-ecosystem-4p4e",
+      "source": "DEV",
+      "path": "../../content/writing/dev/building-vouqis-how-we-built-the-trust-layer-for-mcp-ecosystem-3762769.mdx",
+      "kind": "article",
+      "description": "Your AI agent calls a Model Context Protocol (MCP) server. The server returns a standard 200 OK. The..."
+    }
+  ],
+  "substack": [
+    {
+      "title": "Want to keep your job? Read this",
+      "date": "Thu, 26 Mar 2026",
+      "url": "https://sasisundar.substack.com/p/want-to-keep-your-job-read-this",
+      "source": "Substack",
+      "kind": "dispatch",
+      "description": "Everyone, we have officially crossed the threshold"
+    },
+    {
+      "title": "Execution Got Cheaper. Taste Became the Edge",
+      "date": "Tue, 24 Mar 2026",
+      "url": "https://sasisundar.substack.com/p/execution-got-cheaper-taste-became",
+      "source": "Substack",
+      "kind": "dispatch",
+      "description": "AI completed a 50-minute unassisted task in March 2025."
+    },
+    {
+      "title": "9 prompt frameworks every AI user needs to know",
+      "date": "Thu, 19 Mar 2026",
+      "url": "https://sasisundar.substack.com/p/9-prompt-frameworks-every-ai-user",
+      "source": "Substack",
+      "kind": "dispatch",
+      "description": "You write a prompt the same way you send a text message."
+    },
+    {
+      "title": "What OpenClaw means for the small firm that has never heard of it",
+      "date": "Tue, 17 Mar 2026",
+      "url": "https://sasisundar.substack.com/p/what-openclaw-means-for-the-small",
+      "source": "Substack",
+      "kind": "dispatch",
+      "description": "Two days ago, Nvidia CEO Jensen Huang stood in front of 20,000 people at GTC in San Jose and said every company now needs an OpenClaw strategy."
+    },
+    {
+      "title": "Most People Use 1 out of 6 Claude features.Here is the Complete Ecosystem breakdown with tips and hidden secrets",
+      "date": "Sun, 15 Mar 2026",
+      "url": "https://sasisundar.substack.com/p/most-people-use-1-out-of-6-claude",
+      "source": "Substack",
+      "kind": "dispatch",
+      "description": "If you are only using the Claude chat window, you are missing 90% of its power."
+    },
+    {
+      "title": "MIT published the AI curriculum.",
+      "date": "Sun, 15 Mar 2026",
+      "url": "https://sasisundar.substack.com/p/mit-published-the-ai-curriculum",
+      "source": "Substack",
+      "kind": "dispatch",
+      "description": "Here is how to use it."
+    },
+    {
+      "title": "70+ Free Subscriptions - Become a Student",
+      "date": "Sat, 14 Mar 2026",
+      "url": "https://sasisundar.substack.com/p/70-free-subscriptions-become-a-student",
+      "source": "Substack",
+      "kind": "dispatch",
+      "description": "Almost everything is free, and some offer crazy discounts."
+    },
+    {
+      "title": "Introducing Nemotron 3 Super: An Open Hybrid Mamba-Transformer MoE for Agentic Reasoning",
+      "date": "Fri, 13 Mar 2026",
+      "url": "https://sasisundar.substack.com/p/introducing-nemotron-3-super-an-open",
+      "source": "Substack",
+      "kind": "dispatch",
+      "description": "Agentic AI systems need models with the specialized depth to solve dense technical problems autonomously."
+    }
+  ]
+}
